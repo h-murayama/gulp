@@ -10,7 +10,7 @@ As a premise, you need to include the string __NOCACHE__ in the html file.
 
 
 ## How to use
-1.Clone this repository.
-2.Execute the following command.
+1. Clone this repository.
+2. Execute the following command.
 `npx gulp`
 
