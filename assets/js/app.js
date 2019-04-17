@@ -1,6 +1,5 @@
 var scTop = 0;
 
-
 $(window).scroll(function(){
   if($(this).scrollTop() > 100){
     $('header').addClass('fixed');
@@ -12,4 +11,4 @@ $(window).scroll(function(){
     $('#go_top').removeClass('fixed');
   }
 });
-
+var a = 1;

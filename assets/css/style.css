@@ -9,8 +9,6 @@ h1 {
 }
 
 .test {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -21,3 +19,4 @@ h1 {
 .t a {
   color: #fff;
 }
+
