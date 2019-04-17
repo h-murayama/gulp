@@ -1,0 +1,42 @@
+// How to use
+// 1.copy this file to project folder
+// 2.cd [project folder]
+// 3.npx gulp
+
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const autoprefixer = require("autoprefixer");
+const plumber = require('gulp-plumber');
+const replace = require('gulp-replace');
+const changedInPlace = require('gulp-changed-in-place');
+
+gulp.task('default', ['watch']);
+
+gulp.task('watch', function () {
+    gulp.watch('./assets/css/*.css', {
+        interval: 500
+    }, ['autoprefixer']);
+    gulp.watch('./**/*.htm*', {
+        interval: 500
+    }, ['build']);
+});
+
+// ベンダープレフィックスの付与
+gulp.task('autoprefixer', () => {
+    return gulp.src('./assets/css/*.css')
+        .pipe(plumber())
+        .pipe(postcss([autoprefixer(['last 4 versions'])]))
+        .pipe(gulp.dest('./dist'));
+});
+
+// HTMLファイルのビルド（タイムスタンプをパラメーターとして付与、置換する）
+gulp.task('build', () => {
+    ts = Date.now();
+    //実行するファイル
+    gulp.src(['./**/*.html', '!./dist/*'])
+        //pipeでつなぐ
+        .pipe(plumber()) //エラーでもファイル監視継続watch
+        .pipe(changedInPlace())
+        .pipe(replace(/__NOCACHE__/g, ts)) //置換
+        .pipe(gulp.dest('./dist')); //ディレクトリに書き出す
+});
