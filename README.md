@@ -18,7 +18,8 @@ At the current latest version of 11.x etc., grammar of gulpfile.js has been chan
 - `npm init`
 - `npm install --save-dev gulp`
 2. Clone this repository.
-3. Rename file gulpfile.org to gulpfile.js,package.json.org to package.json
+3. Rename file gulpfile.org to gulpfile.js,package.json.org to package.json, and gulp command.
+- `npm install gulp-postcss --save`
 4. Execute the following command.
 - `npx gulp`
 5. If you change .html, .js, .scss, the gulp being monitored is executed and the file is output.
